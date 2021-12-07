@@ -1,0 +1,8 @@
+induction a with c hd,
+rw zero_add (b),
+rw add_zero (b),
+refl,
+rw add_succ (b),
+rw succ_add,
+rw hd,
+refl,
