@@ -1,0 +1,8 @@
+induction b with c p,
+rw add_zero (succ a),
+rw add_zero (a),
+refl,
+rw add_succ (succ a),
+rw p,
+rw add_succ a,
+refl,
