@@ -1,0 +1,5 @@
+intros a b c,
+apply a,
+exact c,
+apply b,
+exact c,
