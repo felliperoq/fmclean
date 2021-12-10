@@ -1,0 +1,6 @@
+intros a b,
+cases a with p q,
+cases b with r s,
+split,
+exact p,
+exact s,
