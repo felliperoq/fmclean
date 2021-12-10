@@ -1,0 +1,6 @@
+intros a b,
+cases a with r s,
+cases b with t u,
+split,
+cc,
+cc,
