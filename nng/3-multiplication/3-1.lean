@@ -1,0 +1,6 @@
+induction m with n hd,
+refl,
+rw mul_succ,
+rw add_zero,
+rw hd,
+refl,
