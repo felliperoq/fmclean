@@ -1,0 +1,6 @@
+intro a,
+cases a with b c,
+right,
+exact b,
+left,
+exact c,
