@@ -1,0 +1,7 @@
+induction m with n hd,
+rw pow_zero,
+refl,
+rw pow_succ,
+rw hd,
+rw one_mul,
+refl,
