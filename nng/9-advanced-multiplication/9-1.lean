@@ -1,0 +1,7 @@
+intros P Q R,
+cases b with c,
+rw mul_zero a at R,
+exact Q R,
+rw mul_succ a at R,
+have S := add_left_eq_zero R,
+exact P S,
