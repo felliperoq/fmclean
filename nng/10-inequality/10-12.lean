@@ -1,0 +1,6 @@
+intro p,
+cases p with q r,
+rw succ_add a q at r,
+have s := succ_inj r,
+use q,
+exact s,
