@@ -1,0 +1,7 @@
+intro p,
+rw ← add_zero a at p,
+rw add_assoc a 0 b at p,
+rw zero_add at p,
+have q := add_left_cancel a b 0,
+apply q,
+exact p, 
