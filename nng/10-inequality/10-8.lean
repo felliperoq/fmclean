@@ -1,0 +1,5 @@
+cases h with p Q,
+rw Q,
+use p,
+rw succ_add a p,
+refl,
