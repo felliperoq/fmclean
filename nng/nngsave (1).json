@@ -343,15 +343,17 @@
     },
     {
       "lean": "theorem mul_pos (a b : mynat) : a ≠ 0 → b ≠ 0 → a * b ≠ 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intros P Q R,\ncases b with c,\nrw mul_zero a at R,\nexact Q R,\nrw mul_succ a at R,\nhave S := add_left_eq_zero R,\nexact P S,\n"
     },
     {
       "lean": "theorem eq_zero_or_eq_zero_of_mul_eq_zero (a b : mynat) (h : a * b = 0) :\n  a = 0 ∨ b = 0 :=\n",
-      "editorText": "sorry"
+      "editorText": "cases b,\nright,\nexact mul_zero a at h,\nrw mul_succ at h,\nleft,\nexact add_left_eq_zero h,\n"
     },
     {
       "lean": "theorem mul_eq_zero_iff (a b : mynat): a * b = 0 ↔ a = 0 ∨ b = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "split,\nintro P,\nhave Q := eq_zero_or_eq_zero_of_mul_eq_zero a b,\nexact Q P,\nintro P,\ncases P,\nrw P,\nrw zero_mul,\nrefl,\nrw P,\nrw mul_zero,\nrefl,\n"
     },
     {
       "lean": "theorem mul_left_cancel (a b c : mynat) (ha : a ≠ 0) : a * b = a * c → b = c :=\n",
