@@ -1,0 +1,7 @@
+cases hab with P Q,
+cases hbc with R S,
+rw S,
+rw Q,
+use P+R,
+rw add_assoc,
+refl,
