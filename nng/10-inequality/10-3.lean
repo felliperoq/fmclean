@@ -1,0 +1,6 @@
+intro h,
+cases h with c hc,
+rw hc,
+use succ c,
+rw add_succ,
+refl,
