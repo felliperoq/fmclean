@@ -1,0 +1,6 @@
+cases b,
+right,
+exact mul_zero a at h,
+rw mul_succ at h,
+left,
+exact add_left_eq_zero h,
