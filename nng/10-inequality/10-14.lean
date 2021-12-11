@@ -1,0 +1,8 @@
+induction t with u hd,
+rw zero_add a,
+rw zero_add b,
+exact h,
+rw succ_add u a,
+rw succ_add u b,
+apply succ_le_succ,
+exact hd,
