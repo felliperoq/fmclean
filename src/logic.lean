@@ -250,19 +250,55 @@ end
 theorem distr_conj_disj_converse :
   (P∧Q)∨(P∧R) → P∧(Q∨R)  :=
 begin
-  sorry,
+  intro p,
+  cases p with q r,
+  split,
+  cases q with s t,
+  exact s,
+  cases q with u v,
+  left,
+  exact v,
+  cases r with w x,
+  split,
+  exact w,
+  right,
+  exact x,
 end
 
 theorem distr_disj_conj :
   P∨(Q∧R) → (P∨Q)∧(P∨R)  :=
 begin
-  sorry,
+  intro p,
+  split,
+  cases p with q r s,
+  left,
+  exact q,
+  cases r with t u,
+  right,
+  exact t,
+  cases p with v w,
+  left,
+  exact v,
+  cases w with x y,
+  right,
+  exact y,
 end
 
 theorem distr_disj_conj_converse :
   (P∨Q)∧(P∨R) → P∨(Q∧R)  :=
 begin
-  sorry,
+  intro p,
+  cases p with q r,
+  cases q,
+  left,
+  exact q,
+  cases r,
+  left,
+  exact r,
+  right,
+  split,
+  exact q,
+  exact r,
 end
 
 
@@ -273,13 +309,21 @@ end
 theorem curry_prop :
   ((P∧Q)→R) → (P→(Q→R))  :=
 begin
-  sorry,
+  intros p q r,
+  apply p,
+  split,
+  exact q,
+  exact r,
 end
-
 theorem uncurry_prop :
   (P→(Q→R)) → ((P∧Q)→R)  :=
 begin
-  sorry,
+  intros p q,
+  apply p,
+  cases q with r s,
+  exact r,
+  cases q with r s,
+  exact s,
 end
 
 
@@ -290,7 +334,8 @@ end
 theorem impl_refl :
   P → P  :=
 begin
-  sorry,
+  intro p,
+  exact p,
 end
 
 ------------------------------------------------
@@ -300,37 +345,59 @@ end
 theorem weaken_disj_right :
   P → (P∨Q)  :=
 begin
-  sorry,
+  intro p,
+  left,
+  exact p,
 end
 
 theorem weaken_disj_left :
   Q → (P∨Q)  :=
 begin
-  sorry,
+  intro p,
+  right,
+  exact p,
 end
 
 theorem weaken_conj_right :
   (P∧Q) → P  :=
 begin
-  sorry,
+  intro p,
+  cases p with q r,
+  exact q,
 end
 
 theorem weaken_conj_left :
   (P∧Q) → Q  :=
 begin
-  sorry,
+  intro p,
+  cases p with q r,
+  exact r,
 end
 
 theorem conj_idempot :
   (P∧P) ↔ P :=
 begin
-  sorry,
+  split,
+  intro p,
+  cases p with q r,
+  exact q,
+  intro p,
+  split,
+  exact p,
+  exact p,
 end
 
 theorem disj_idemp :
   (P∨P) ↔ P  :=
 begin
-  sorry,
+  split,
+  intro p,
+  cases p,
+  exact p,
+  exact p,
+  intro p,
+  left,
+  exact p,
 end
 
 end propositional
@@ -352,25 +419,42 @@ variables P Q : U -> Prop
 theorem demorgan_exists_neg :
   (∃x, ¬P x) → ¬(∀x, P x)  :=
 begin
-  
+  intros p,
+  cases p with q r,
+  intro s,
+  have i := s q,
+  exact r i,
 end
 
 theorem demorgan_neg_exists :
   ¬(∃x, P x) → (∀x, ¬P x)  :=
 begin
-  sorry,
+  intros p q r,
+  apply p,
+  existsi q,
+  exact r,
 end
 
 theorem demorgan_forall_neg :
   (∀x, ¬P x) → ¬(∃x, P x)  :=
 begin
-  sorry,
+  intros p q,
+  cases q with r s,
+  have i := p r,
+  exact i s,
 end
 
 theorem demorgan_neg_forall :
   ¬(∀x, P x) → (∃x, ¬P x)  :=
 begin
-  sorry,
+  intro p,
+  by_contra r,
+  apply p,
+  intro q,
+  by_contra,
+  apply r,
+  existsi q,
+  exact h,
 end
 
 theorem demorgan_exists_law :
@@ -486,4 +570,3 @@ end
 ---------------------------------------------- -/
 
 end predicate
-
